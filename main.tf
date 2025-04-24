@@ -1,17 +1,10 @@
 ######################################
 # Create an EC2 Instance
 ######################################
-resource "aws_instance" "demo_instance" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = var.ec2_name
-  }
-}
 
 
-resource "aws_instance" "windows_server" {
+
+resource "aws_instance" "demo_server" {
   ami                    = "ami-0d2b6dd8446bf0f28" # Windows Server AMI
   instance_type          = "t3.medium"
   subnet_id              = module.vpc.public_subnet_ids[0]
